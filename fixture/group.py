@@ -1,3 +1,6 @@
+import openpyxl
+
+
 class GroupHelper:
 
     def __init__(self, app):
@@ -39,6 +42,15 @@ class GroupHelper:
         self.open_delete_group_form()
         self.delete_group_form.window(auto_id="uxOKAddressButton").click()
         self.close_group_editor()
+
+    def data_from_excel_file(self):
+        book = openpyxl.open("C:\\Users\\Haytay\\PycharmProjects\\python-gui-tests\\groups.xlsx", read_only=True)
+        sheet = book.active
+        list = []
+        for row in range(1, 11):
+            group = sheet[row][0].value
+            list.append(group)
+        return list
 
 
 
