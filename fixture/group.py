@@ -34,8 +34,8 @@ class GroupHelper:
 
     def del_group(self):
         self.open_group_editor()
-        ctrl = self.group_editor['TreeView']
-        ctrl.GetItem([u'Contact groups', u'my group']).Click()
+        tree = self.group_editor['TreeView']
+        tree.GetItem([u'Contact groups', u'my group']).Click()
         self.open_delete_group_form()
         self.delete_group_form.window(auto_id="uxOKAddressButton").click()
         self.close_group_editor()
